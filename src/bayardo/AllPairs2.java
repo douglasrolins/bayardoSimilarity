@@ -13,18 +13,28 @@ public class AllPairs2 {
         for (Vetor x : V) {
             O.addAll(findMatches2(x, indexVector, T));
             b = 0.0;
+            int ysize = 0;
+            double ymaxw = 0;
             for (Feature feature : x.lista) {
                 b = b + Math.min(feature.maxW, x.maxw) * feature.peso; // New
+
                 if (b >= T) {
                     I = indexVector.get(feature.value);
                     if (I == null) {
                         I = new LinkedList<>();
                     }
-                    vetorIndexado = new VetorIndexado(x, feature.peso);
+
+                    //vetorIndexado = new VetorIndexado(x, feature.peso);
+                    vetorIndexado = new VetorIndexado(x, feature.peso,ysize,ymaxw);
                     I.add(vetorIndexado);
                     indexVector.put(feature.value, I);
                     feature.peso = 0.0;
                 }
+                else {
+                    ysize++;
+                    ymaxw = feature.peso;
+                }
+
             }
         }
         return O;
@@ -72,11 +82,11 @@ public class AllPairs2 {
                         vc = A.get(vi.vetor.id);
 
                         if (vc == null) {
-                            vc = new VetorCandidato(vi.vetor, similarity);
+                            vc = new VetorCandidato(vi.vetor, similarity,vi.sizePrime,vi.MaxWPrime);
 
-                            if (vi.peso + (Math.min(vi.vetor.lista.size(), X.lista.size()) * X.maxw * vi.vetor.maxw) >= T) { // Line 12
+                         //   if (vi.peso + (Math.min(vi.vetor.lista.size(), X.lista.size()) * X.maxw * vi.vetor.maxw) >= T) { // Line 12
                                 A.put(vi.vetor.id, vc);
-                            }
+                          //  }
                         } else {
                             vc.score += similarity;
                         }

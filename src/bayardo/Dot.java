@@ -81,6 +81,9 @@ public class Dot {
         for (VetorCandidato vc : candidatos) {
             double dotProduct = vc.score;
 
+            if (vc.ysize != 0 && vc.score+Math.min(vc.ysize,x.lista.size())*x.maxw*vc.maxw <t ) { // Line 12 findMatches2
+                continue;
+            }
             for (Feature f : vc.vetor.lista) {
                 if (f.peso != 0.0) {
                     Double peso = mapX.get(f.value);
