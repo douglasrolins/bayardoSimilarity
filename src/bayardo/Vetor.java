@@ -8,11 +8,7 @@ public class Vetor implements Comparable<Vetor> {
 
     public int id;
 
-    // public double maxw_xlinha;
-
     public double maxw;
-
-   // public int posUltimoElemento;
 
     public Vetor(int id, List<Feature> lista, double maxw) {
         this.id = id;

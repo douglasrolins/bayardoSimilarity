@@ -24,17 +24,15 @@ public class AllPairs2 {
                         I = new LinkedList<>();
                     }
 
-                    //vetorIndexado = new VetorIndexado(x, feature.peso);
                     vetorIndexado = new VetorIndexado(x, feature.peso,ysize,ymaxw);
                     I.add(vetorIndexado);
                     indexVector.put(feature.value, I);
                     feature.peso = 0.0;
                 }
                 else {
-                    ysize++;
-                    ymaxw = feature.peso;
+                    ysize++; // Add 1 to size to y'
+                    ymaxw = feature.peso; // Define maxw to y'
                 }
-
             }
         }
         return O;
@@ -57,15 +55,12 @@ public class AllPairs2 {
         // Minsize - Line 4
         int minsize = (int) Math.floor(T / X.maxw);
 
-
-        //Collections.sort(X.lista, Collections.reverseOrder());
-
         for (Feature feature : X.lista) {
 
             listaVetorIndexado = I.get(feature.value);
             if (listaVetorIndexado != null) {
 
-                //Remove y,w from the I while |y| < minsize - Line 6
+                // Remove y,w from the I while |y| < minsize - Line 6
                 Iterator<VetorIndexado> v = listaVetorIndexado.iterator();
                 while (v.hasNext()) {
                     vetorIndexado = v.next();
@@ -73,7 +68,7 @@ public class AllPairs2 {
                         v.remove();
                     }
                 }
-                //End Remove Iterator
+                // End Remove Iterator
 
                 for (VetorIndexado vi : listaVetorIndexado) {
 
@@ -82,11 +77,8 @@ public class AllPairs2 {
                         vc = A.get(vi.vetor.id);
 
                         if (vc == null) {
-                            vc = new VetorCandidato(vi.vetor, similarity,vi.sizePrime,vi.MaxWPrime);
-
-                         //   if (vi.peso + (Math.min(vi.vetor.lista.size(), X.lista.size()) * X.maxw * vi.vetor.maxw) >= T) { // Line 12
+                            vc = new VetorCandidato(vi.vetor, similarity,vi.size,vi.maxw);
                                 A.put(vi.vetor.id, vc);
-                          //  }
                         } else {
                             vc.score += similarity;
                         }

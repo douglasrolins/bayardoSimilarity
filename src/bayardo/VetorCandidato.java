@@ -24,7 +24,7 @@ public class VetorCandidato {
 
     @Override
     public String toString() {
-        return "\nVetorIndexado :" + "Score: [" + score + "] " + vetor;
+        return "\nVetorIndexado: [Score:" + score + " YSize:" + ysize + " Maxw: " + maxw + "]" + vetor;
     }
 
 }

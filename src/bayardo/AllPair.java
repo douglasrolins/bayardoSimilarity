@@ -14,26 +14,24 @@ public class AllPair {
         double t = 0.5;
 
         /// -------  Set dataset source ----------
+        File file = new File("src/bayardo/dataset.xml");
         Scanner read = new Scanner(System.in);
         System.out.print("1 for Dataset inline or 2 for XML --> ");
-        int source = read.nextInt();
-        //int source = 2; // 1 for Dataset Inline or 2 for XML
+        int source = read.nextInt(); // User defined source
+        //int source = 2; // 1 for Dataset Inline or 2 for XML - Set source inline
 
         if (source == 1) {
             V = Dataset.DatasetInline();
         } else if (source == 2) {
-            File file = new File("src/bayardo/dataset.xml");
             V = Dataset.readXMLtoListVector(file);
-
             // -- Print XML
            // Dataset.printXML(file);
         }
-
         // --------- End Set dataset source ----------
 
 
         ////////////////////
-        ////////// ALLPAIRS0
+        ////////// ALLPAIRS-0
         System.out.println("\t\tALL PAIRS 0\t\t");
 
         long startTime = System.nanoTime();
@@ -45,20 +43,18 @@ public class AllPair {
         System.out.println("----");
 
         ////////////////////
-        ////////// ALLPAIRS1
+        ////////// ALLPAIRS-1/
 
         // -- Load dataset
         if (source == 1) {
             V = Dataset.DatasetInline();
         } else if (source == 2) {
-            File file = new File("src/bayardo/dataset.xml");
             V = Dataset.readXMLtoListVector(file);
         }
         // --------
 
         System.out.println("\t\tALL PAIRS 1\t\t");
-        Collections.sort(V);
-
+        //  Missing: Reorder the dimensions 1...m such that dimensions with the most non-zero entries in V appear first.
         startTime = System.nanoTime();
         listaResultado = AllPairs1.allPairs1(V, t);
         totalTime = System.nanoTime() - startTime;
@@ -68,19 +64,17 @@ public class AllPair {
         System.out.println("----");
 
         ////////////////////
-        ////////// ALLPAIRS1PRIME
+        ////////// ALLPAIRS-1-PRIME
 
         // -- Load dataset
         if (source == 1) {
             V = Dataset.DatasetInline();
         } else if (source == 2) {
-            File file = new File("src/bayardo/dataset.xml");
             V = Dataset.readXMLtoListVector(file);
         }
         // --------
 
         System.out.println("\t\tALL PAIRS 1 PRIME\t\t");
-        Collections.sort(V);
 
         startTime = System.nanoTime();
         listaResultado = AllPairs1.allPairs1Prime(V, t);
@@ -92,19 +86,18 @@ public class AllPair {
 
 
         ////////////////////
-        ////////// ALLPAIRS2
+        ////////// ALLPAIRS-2
 
         // -- Load dataset
         if (source == 1) {
             V = Dataset.DatasetInline();
         } else if (source == 2) {
-            File file = new File("src/bayardo/dataset.xml");
             V = Dataset.readXMLtoListVector(file);
         }
         // --------
 
         System.out.println("\t\tALL PAIRS 2\t\t");
-        V.sort(Collections.reverseOrder());
+        Collections.sort(V); // Sort V in decreasing order of maxweight (x) .
 
         startTime = System.nanoTime();
         listaResultado = AllPairs2.allPairs2(V, t);

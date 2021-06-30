@@ -12,12 +12,10 @@ public class AllPairs1 {
         VetorIndexado vetorIndexado;
         double b;
         for (Vetor x : V) {
-            // addAll
             O.addAll(findMatches1(x, indexVector, T));
-            b = 0.0;
-            // idx = 0;
+            b = 0.0; // Upperbound
             for (Feature feature : x.lista) {
-                b = b + feature.peso * feature.maxW;
+                b = b + feature.peso * feature.maxW; // Calculate upperbound
 
                 if (b >= T) {
                     I = indexVector.get(feature.value);

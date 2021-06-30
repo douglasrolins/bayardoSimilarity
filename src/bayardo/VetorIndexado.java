@@ -4,9 +4,9 @@ public class VetorIndexado {
 
     public Vetor vetor;
 
-    public double MaxWPrime;
+    public double maxw;
 
-    int sizePrime;
+    int size;
 
     public double peso;
 
@@ -15,16 +15,16 @@ public class VetorIndexado {
         this.peso = peso;
     }
 
-    public VetorIndexado(Vetor vetor, double peso, int sizePrime, double MaxWPrime) {
+    public VetorIndexado(Vetor vetor, double peso, int size, double maxw) {
         this.vetor = vetor;
         this.peso = peso;
-        this.sizePrime = sizePrime;
-        this.MaxWPrime = MaxWPrime;
+        this.size = size;
+        this.maxw = maxw;
     }
 
     @Override
     public String toString() {
-        return "\nVetorIndexado :" + "Peso: [" + peso + "] " + vetor;
+        return "\nVetorIndexado: [Peso:" + peso + " Maxw:" + maxw + " Size:" + size + "]" + vetor;
     }
 
 }
