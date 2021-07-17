@@ -127,7 +127,6 @@ public class Dataset {
         return V;
     }
 
-    @SuppressWarnings("unused")
     public static void printXML(File file) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

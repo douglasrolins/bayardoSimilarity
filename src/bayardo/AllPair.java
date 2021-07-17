@@ -15,7 +15,8 @@ public class AllPair {
 
         /// -------  Set dataset source ----------
         File file = new File("src/bayardo/dataset.xml");
-        Scanner read = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner read = new Scanner(System.in);
         System.out.print("1 for Dataset inline or 2 for XML --> ");
         int source = read.nextInt(); // User defined source
         //int source = 2; // 1 for Dataset Inline or 2 for XML - Set source inline
@@ -39,7 +40,7 @@ public class AllPair {
         long totalTime = System.nanoTime() - startTime;
 
         System.out.println(listaResultado);
-        System.out.println("Tempo de Execução AllPairs0: " + totalTime + " = " + totalTime / 1000000 + " ms");
+        System.out.println("Tempo de ExecuÃ§Ã£o AllPairs0: " + totalTime + " = " + totalTime / 1000000 + " ms");
         System.out.println("----");
 
         ////////////////////
@@ -60,7 +61,7 @@ public class AllPair {
         totalTime = System.nanoTime() - startTime;
 
         System.out.println(listaResultado);
-        System.out.println("Tempo de Execução AllPairs1: " + totalTime + " = " + totalTime / 1000000 + " ms");
+        System.out.println("Tempo de ExecuÃ§Ã£o AllPairs1: " + totalTime + " = " + totalTime / 1000000 + " ms");
         System.out.println("----");
 
         ////////////////////
@@ -81,7 +82,7 @@ public class AllPair {
         totalTime = System.nanoTime() - startTime;
 
         System.out.println(listaResultado);
-        System.out.println("Tempo de Execução AllPairs1Prime: " + totalTime + " = " + totalTime / 1000000 + " ms");
+        System.out.println("Tempo de ExecuÃ§Ã£o AllPairs1Prime: " + totalTime + " = " + totalTime / 1000000 + " ms");
         System.out.println("----");
 
 
@@ -104,7 +105,7 @@ public class AllPair {
         totalTime = System.nanoTime() - startTime;
 
         System.out.println(listaResultado);
-        System.out.println("Tempo de Execução AllPairs2: " + totalTime + " = " + totalTime / 1000000 + " ms");
+        System.out.println("Tempo de ExecuÃ§Ã£o AllPairs2: " + totalTime + " = " + totalTime / 1000000 + " ms");
         System.out.println("----");
 
         // -- Print vector list

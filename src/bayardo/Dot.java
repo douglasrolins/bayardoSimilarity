@@ -28,7 +28,6 @@ public class Dot {
     }
 
     // Melhorias no método dotPrime: Utiliza Sort Merge ou Hash, fazendo que a complexidade seja O(n) ao invés de O(n^2) como em dot
-    @SuppressWarnings("unused")
     public static double dotPrime(Vetor x, Vetor y) {
         double dotProduct = 0.0;
 
