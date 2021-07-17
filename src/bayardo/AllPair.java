@@ -10,7 +10,7 @@ public class AllPair {
         List<Vetor> V = null;
         List<Resultado> listaResultado;
 
-        // Set Threshold
+        //Set Threshold
         double t = 0.5;
 
         /// -------  Set dataset source ----------
